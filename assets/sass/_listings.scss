@@ -1,5 +1,5 @@
 header {
-  background: #0E032D;
+  background: #0e032d;
   color: white;
   overflow: auto;
   padding: 30px 15px;
@@ -16,9 +16,11 @@ header {
       text-decoration: none;
       padding: 10px 20px;
       text-transform: capitalize;
+      font-weight: 300;
+      font-size: 0.8rem;
 
       &:hover {
-        color: #FF7A87;
+        color: #ff7a87;
       }
 
       &.register-btn {
