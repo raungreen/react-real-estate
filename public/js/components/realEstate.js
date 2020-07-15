@@ -180,7 +180,7 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras' },
+              { htmlFor: 'extras' },
               _react2.default.createElement(
                 'span',
                 null,
@@ -191,7 +191,7 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras' },
+              { htmlFor: 'extras' },
               _react2.default.createElement(
                 'span',
                 null,
@@ -202,7 +202,7 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras' },
+              { htmlFor: 'extras' },
               _react2.default.createElement(
                 'span',
                 null,
@@ -213,7 +213,7 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras' },
+              { htmlFor: 'extras' },
               _react2.default.createElement(
                 'span',
                 null,
@@ -224,7 +224,7 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras' },
+              { htmlFor: 'extras' },
               _react2.default.createElement(
                 'span',
                 null,
@@ -235,7 +235,7 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras' },
+              { htmlFor: 'extras' },
               _react2.default.createElement(
                 'span',
                 null,
@@ -246,7 +246,7 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras' },
+              { htmlFor: 'extras' },
               _react2.default.createElement(
                 'span',
                 null,
@@ -257,7 +257,7 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               'label',
-              { 'for': 'extras' },
+              { htmlFor: 'extras' },
               _react2.default.createElement(
                 'span',
                 null,
@@ -398,10 +398,123 @@ var Listings = function (_Component) {
     _this.state = {
       name: 'Joe'
     };
+    _this.loopListings = _this.loopListings.bind(_this);
     return _this;
   }
 
   _createClass(Listings, [{
+    key: 'loopListings',
+    value: function loopListings() {
+      var listingsData = this.props.listingsData;
+
+      return listingsData.map(function (listing, index) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'col-md-3', key: index },
+          _react2.default.createElement(
+            'div',
+            { className: 'listing' },
+            _react2.default.createElement(
+              'div',
+              {
+                className: 'listing-img',
+                style: {
+                  background: 'url("' + listing.image + '") no-repeat center center'
+                }
+              },
+              _react2.default.createElement(
+                'span',
+                { className: 'address' },
+                listing.address
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'details' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-3' },
+                  _react2.default.createElement('div', { className: 'user-img' })
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-9' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'user-details' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'user-name' },
+                      'Nina Smith'
+                    ),
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'post-date' },
+                      'Posted on 05/08/17'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing-details' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'floor-space' },
+                      _react2.default.createElement('i', { className: 'fa fa-square-o' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        listing.floorSpace,
+                        ' ft\xB2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'bedrooms' },
+                      _react2.default.createElement('i', { className: 'fa fa-bed' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        listing.bedroom,
+                        ' bedrooms'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'view-btn' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: '#' },
+                      'View Listing'
+                    )
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'bottom-info' },
+              _react2.default.createElement(
+                'span',
+                { className: 'price' },
+                '$',
+                listing.price,
+                ' / month '
+              ),
+              _react2.default.createElement(
+                'span',
+                { className: 'location' },
+                _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
+                listing.city,
+                ', ',
+                listing.state,
+                ' '
+              )
+            )
+          )
+        );
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -448,102 +561,14 @@ var Listings = function (_Component) {
         _react2.default.createElement(
           'section',
           { className: 'listings-results' },
-          _react2.default.createElement(
-            'div',
-            { className: 'listing' },
-            _react2.default.createElement(
-              'div',
-              { className: 'listing-img' },
-              _react2.default.createElement(
-                'span',
-                { className: 'address' },
-                '2613 State St.'
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'details' },
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-md-3' },
-                  _react2.default.createElement('div', { className: 'user-img' })
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-md-9' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'user-details' },
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'user-name' },
-                      'Nina Smith'
-                    ),
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'post-date' },
-                      'Posted on 05/08/17'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'listing-details' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'floor-space' },
-                      _react2.default.createElement('i', { className: 'fa fa-square-o' }),
-                      _react2.default.createElement(
-                        'span',
-                        null,
-                        '900 ft\xB2'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'bedrooms' },
-                      _react2.default.createElement('i', { className: 'fa fa-bed' }),
-                      _react2.default.createElement(
-                        'span',
-                        null,
-                        '3 bedrooms'
-                      )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'view-btn' },
-                    _react2.default.createElement(
-                      'a',
-                      { href: '#' },
-                      'View Listing'
-                    )
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'bottom-info' },
-              _react2.default.createElement(
-                'span',
-                null,
-                '$1000 / month '
-              ),
-              _react2.default.createElement(
-                'span',
-                null,
-                _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
-                'Ridgewood MO',
-                ' '
-              )
-            )
-          )
+          this.loopListings()
         ),
         _react2.default.createElement(
           'section',
-          { className: 'pagination' },
+          { id: 'pagination' },
           _react2.default.createElement(
             'ul',
-            { className: 'pagination' },
+            { className: 'pages' },
             _react2.default.createElement(
               'li',
               null,
@@ -551,7 +576,7 @@ var Listings = function (_Component) {
             ),
             _react2.default.createElement(
               'li',
-              null,
+              { className: 'active' },
               '1'
             ),
             _react2.default.createElement(
@@ -592,7 +617,102 @@ exports.default = Listings;
 
 /***/ }),
 
-/***/ 236:
+/***/ 233:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var listingsData = [{
+  address: '2354 Dawkins Ave',
+  city: 'Crestwood',
+  state: 'MO',
+  rooms: 3,
+  price: 550000,
+  floorSpace: 2300,
+  extras: ['elevators', 'bath tub'],
+  homeType: 'Apartment',
+  image: '/img/house-1.jpeg'
+}, {
+  address: '557 Sweet St',
+  city: 'Frontenac',
+  state: 'IL',
+  rooms: 5,
+  price: 1850000,
+  floorSpace: 7590,
+  extras: ['elevators', 'gym', 'fireplace', 'swimmin pool'],
+  homeType: 'Apartment',
+  image: '/img/house-2.jpg'
+}, {
+  address: '747 Plum Valley Pk',
+  city: 'Shrewsberry',
+  state: 'MO',
+  rooms: 3,
+  price: 350000,
+  floorSpace: 2300,
+  extras: ['finished basement', 'storage'],
+  homeType: 'Apartment',
+  image: '/img/house-3.jpg'
+}, {
+  address: '3400 Creek Ave',
+  city: 'Atlanta',
+  state: 'GA',
+  rooms: 3,
+  price: 350000,
+  floorSpace: 2300,
+  extras: ['seperate shower', 'finished basement'],
+  homeType: 'Apartment',
+  image: '/img/house-4.jpg'
+}, {
+  address: '1245 Backdown Blvd',
+  city: 'Crestwood',
+  state: 'CO',
+  rooms: 3,
+  price: 250000,
+  floorSpace: 2300,
+  extras: ['gym'],
+  homeType: 'Apartment',
+  image: '/img/house-5.jpg'
+}, {
+  address: '5680 Richards Ave',
+  city: 'Chesterfield',
+  state: 'MD',
+  rooms: 3,
+  price: 940000,
+  floorSpace: 2300,
+  extras: ['storage', 'seperate shower'],
+  homeType: 'Apartment',
+  image: '/img/house-6.jpg'
+}, {
+  address: '768 Park Ave',
+  city: 'Culver',
+  state: 'CA',
+  rooms: 3,
+  price: 1150000,
+  floorSpace: 2300,
+  extras: ['storage', 'seperate shower'],
+  homeType: 'Apartment',
+  image: '/img/house-7.jpg'
+}, {
+  address: '680 Greens Circle',
+  city: 'Brentwood',
+  state: 'CA',
+  rooms: 3,
+  price: 2050000,
+  floorSpace: 2300,
+  extras: ['storage', 'seperate shower'],
+  homeType: 'Apartment',
+  image: '/img/house-8.jpg'
+}];
+
+exports.default = listingsData;
+
+/***/ }),
+
+/***/ 237:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -620,6 +740,10 @@ var _Listings = __webpack_require__(232);
 
 var _Listings2 = _interopRequireDefault(_Listings);
 
+var _listingsData = __webpack_require__(233);
+
+var _listingsData2 = _interopRequireDefault(_listingsData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -637,7 +761,8 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
     _this.state = {
-      name: 'Joe'
+      name: 'Joe',
+      listingsData: _listingsData2.default
     };
     return _this;
   }
@@ -653,7 +778,7 @@ var App = function (_Component) {
           'section',
           { id: 'content-area' },
           _react2.default.createElement(_Filter2.default, null),
-          _react2.default.createElement(_Listings2.default, null)
+          _react2.default.createElement(_Listings2.default, { listingsData: this.state.listingsData })
         )
       );
     }
@@ -668,4 +793,4 @@ _reactDom2.default.render(_react2.default.createElement(App, null), app);
 
 /***/ })
 
-},[236]);
+},[237]);
