@@ -1,7 +1,16 @@
+#content-area {
+  overflow: auto;
+  width: 100%;
+  background: black;
+  min-height: 100vh;
+}
+
 #filter {
   background: $lightGray;
   width: 30%;
   max-width: 300px;
+  display: inline-block;
+  float: left;
 
   .inside {
     padding: 20px;
@@ -56,6 +65,222 @@
       }
     }
   }
+}
 
+#listings {
+  width: 70%;
+  float: left;
+  display: inline-block;
+  padding: 15px;
+  background: $softWhite;
 
+  .search-area {
+    input[type="text"] {
+      width: 70%;
+      background: transparent;
+      font-size: 2rem;
+      border: none;
+      border-bottom: 2px solid $mediumGray;
+      margin-bottom: 20px;
+      color: $mediumGray;
+    }
+  }
+
+  .sortby-area {
+    margin-bottom: 20px;
+
+    .results {
+      color: $mediumGray;
+      font-size: .8rem;
+      display: inline-block;
+
+    }
+
+    .sort-options {
+      float: right;
+
+      select {
+        font-size: .9rem;
+        font-weight: 300;
+        border: 1px solid $lightGray;
+        background: transparent;
+        padding: 20px;
+        display: inline-block;
+        margin-right: 15px;
+        vertical-align: top;
+      }
+
+      .view {
+        display: inline-block;
+
+        .fa {
+          font-size: 1.5rem;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+
+  .listings-results {
+    margin-bottom: 50px;
+
+    .listing {
+      background: #fff;
+      width: 33.33%;
+      border-radius: 5px;
+      min-width: 250px;
+      -webkit-box-shadow: 0px 9px 55px -5px rgba(224, 221, 224, 1);
+      -moz-box-shadow: 0px 9px 55px -5px rgba(224, 221, 224, 1);
+      box-shadow: 0px 9px 55px -5px rgba(224, 221, 224, 1);
+    }
+
+    .listing-img {
+      color: white;
+      padding: 15px;
+      position: relative;
+      background: url("https://nimvo.com/wp-content/uploads/2018/04/Modern-House.jpg") no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      min-height: 200px;
+      min-width: 225px;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      &:hover {
+        .details {
+          opacity: 1;
+        }
+
+        .address {
+          opacity: 0;
+        }
+      }
+
+      .address {
+        position: absolute;
+        bottom: 20px;
+        opacity: 1;
+        transition: all .4s ease-in-out;
+      }
+
+      .details {
+        transition: all .4s ease-in-out;
+        opacity: 0;
+        padding: 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#5832ff+0,db79e0+100 */
+        background: rgb(88, 50, 255);
+        /* Old browsers */
+        background: -moz-linear-gradient(-45deg, rgba(88, 50, 255, .8) 0%, rgba(219, 121, 224, .8) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, rgba(88, 50, 255, .8) 0%, rgba(219, 121, 224, .8) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, rgba(88, 50, 255, .8) 0%, rgba(219, 121, 224, .8) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5832ff', endColorstr='#db79e0', GradientType=1);
+        /* IE6-9 fallback on horizontal gradient */
+
+        .user-img {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          border: 2px solid white;
+          display: inline-block;
+          background: url("https://nimvo.com/wp-content/uploads/2018/04/Modern-House.jpg") no-repeat center center;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+
+        .user-details {
+          vertical-align: top;
+          display: inline-block;
+
+          .user-name {
+            font-weight: 300;
+            font-size: .9rem;
+            display: block;
+            color: rgba(225, 255, 255, 1);
+            margin-top: 3px;
+            margin-bottom: 6px;
+          }
+
+          .post-date {
+            font-size: .6rem;
+            display: block;
+            color: rgba(225, 255, 255, .7);
+          }
+        }
+
+        .listing-details {
+          margin-top: 25px;
+          margin-bottom: 10px;
+
+          .fa {
+            display: inline-block;
+            font-size: 20px;
+            margin-right: 15px;
+          }
+
+          span {
+            font-weight: 300;
+            font-size: .8rem;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            top: 4px;
+          }
+
+          .floor-space {
+            margin-bottom: 15px;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.view-btn a {
+  background: $pink;
+  padding: 5px;
+  font-size: .9rem;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 100px;
+  text-decoration: none;
+  transition: background 0.6s ease-in-out;
+
+  &:hover {
+    color: white;
+    background: black;
+  }
+}
+
+.col-md-3 {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.col-md-9 {
+  width: 75%;
+  display: inline-block;
 }

@@ -406,11 +406,180 @@ var Listings = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'section',
-        { className: 'listings' },
+        { id: 'listings' },
         _react2.default.createElement(
-          'div',
-          { className: 'logo' },
-          ' Listings'
+          'section',
+          { className: 'search-area' },
+          _react2.default.createElement('input', { type: 'text', name: 'search' })
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: 'sortby-area' },
+          _react2.default.createElement(
+            'div',
+            { className: 'results' },
+            '3920 results found'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'sort-options' },
+            _react2.default.createElement(
+              'select',
+              { name: 'sortby', className: 'sortby' },
+              _react2.default.createElement(
+                'option',
+                { value: 'price-asc' },
+                'Highest Price'
+              ),
+              _react2.default.createElement(
+                'option',
+                { value: 'price-asc' },
+                'Lowest Price'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'view' },
+              _react2.default.createElement('i', { className: 'fa fa-th-list' }),
+              _react2.default.createElement('i', { className: 'fa fa-th' })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: 'listings-results' },
+          _react2.default.createElement(
+            'div',
+            { className: 'listing' },
+            _react2.default.createElement(
+              'div',
+              { className: 'listing-img' },
+              _react2.default.createElement(
+                'span',
+                { className: 'address' },
+                '2613 State St.'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'details' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-3' },
+                  _react2.default.createElement('div', { className: 'user-img' })
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-9' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'user-details' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'user-name' },
+                      'Nina Smith'
+                    ),
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'post-date' },
+                      'Posted on 05/08/17'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'listing-details' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'floor-space' },
+                      _react2.default.createElement('i', { className: 'fa fa-square-o' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '900 ft\xB2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'bedrooms' },
+                      _react2.default.createElement('i', { className: 'fa fa-bed' }),
+                      _react2.default.createElement(
+                        'span',
+                        null,
+                        '3 bedrooms'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'view-btn' },
+                    _react2.default.createElement(
+                      'a',
+                      { href: '#' },
+                      'View Listing'
+                    )
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'bottom-info' },
+              _react2.default.createElement(
+                'span',
+                null,
+                '$1000 / month '
+              ),
+              _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement('i', { className: 'fa fa-map-marker', 'aria-hidden': 'true' }),
+                'Ridgewood MO',
+                ' '
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'section',
+          { className: 'pagination' },
+          _react2.default.createElement(
+            'ul',
+            { className: 'pagination' },
+            _react2.default.createElement(
+              'li',
+              null,
+              'Prev'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '1'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '2'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '3'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '4'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              '5'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              'Next'
+            )
+          )
         )
       );
     }
@@ -482,7 +651,7 @@ var App = function (_Component) {
         _react2.default.createElement(_Header2.default, null),
         _react2.default.createElement(
           'section',
-          null,
+          { id: 'content-area' },
           _react2.default.createElement(_Filter2.default, null),
           _react2.default.createElement(_Listings2.default, null)
         )
