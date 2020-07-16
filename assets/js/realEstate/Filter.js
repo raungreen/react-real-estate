@@ -6,6 +6,52 @@ class Filter extends Component {
     this.state = {
       name: 'Joe',
     };
+    this.cities = this.cities.bind(this);
+    this.homeTypes = this.homeTypes.bind(this);
+    this.bedrooms = this.bedrooms.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.populateAction();
+  }
+  cities() {
+    if (this.props.globalState.populateFormsData.cities != undefined) {
+      var { cities } = this.props.globalState.populateFormsData;
+      console.log(cities);
+      return cities.map((item) => {
+        return (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        );
+      });
+    }
+  }
+  homeTypes() {
+    if (this.props.globalState.populateFormsData.cities != undefined) {
+      var { homeTypes } = this.props.globalState.populateFormsData;
+      console.log(homeTypes);
+      return homeTypes.map((item) => {
+        return (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        );
+      });
+    }
+  }
+  bedrooms() {
+    if (this.props.globalState.populateFormsData.cities != undefined) {
+      var { bedrooms } = this.props.globalState.populateFormsData;
+      console.log(bedrooms);
+      return bedrooms.map((item) => {
+        return (
+          <option key={item} value={item}>
+            {item}+ Bedrooms
+          </option>
+        );
+      });
+    }
   }
 
   render() {
@@ -13,81 +59,153 @@ class Filter extends Component {
       <section id="filter">
         <div className="inside">
           <h4>Filter</h4>
-          <select name="neighborhood" className="filters neighborhood">
-            <option value="">Ridgewood</option>
-            <option value="">Frontenac</option>
-            <option value="">Clayton</option>
-            <option value="">Downtown</option>
-            <option value="">Rural Areas</option>
+          <label htmlFor="city">City</label>
+          <select
+            name="city"
+            className="filters city"
+            onChange={this.props.change}
+          >
+            <option value="All">All</option>
+            {this.cities()}
           </select>
-          <select name="housetype" className="filters housetype">
-            <option value="">Ranch</option>
-            <option value="">Loft</option>
-            <option value="">2-Story</option>
-            <option value="">Multi-Family</option>
+          <label htmlFor="homeType">Home Type</label>
+          <select
+            name="homeType"
+            className="filters homeType"
+            onChange={this.props.change}
+          >
+            <option value="All">All Home Types</option>
+            {this.homeTypes()}
+            {/* <option value="studio">Studio</option>
+            <option value="apartment">Apartment</option>
+            <option value="loft">Loft</option>
+            <option value="duplex">Duplex</option>
+            <option value="ranch">Ranch</option>
+            <option value="2-story">2-Story</option>
+            <option value="multiFamily">Multi-Family</option> */}
           </select>
-          <select name="bedrooms" className="filters bedrooms">
-            <option value="">2 BR</option>
-            <option value="">3 BR</option>
-            <option value="">4 BR</option>
-            <option value="">5+ BR</option>
+          <label htmlFor="bedrooms">Bedrooms</label>
+          <select
+            name="bedrooms"
+            className="filters bedrooms"
+            onChange={this.props.change}
+          >
+            <option value="0">0+ Bedrooms</option>
+            {this.bedrooms()}
+            {/* <option value="1">1+ Bedrooms</option>
+            <option value="2">2+ Bedrooms</option>
+            <option value="3">3+ Bedrooms</option>
+            <option value="4">4+ Bedrooms</option>
+            <option value="5">5+ Bedrooms</option> */}
           </select>
           <div className="filters price">
             <span className="title">Price</span>
-            <input type="text" name="min-price" className="min-price" />
-            <input type="text" name="max-price" className="max-price" />
+            <input
+              type="text"
+              name="min_price"
+              className="min-price"
+              onChange={this.props.change}
+              value={this.props.globalState.min_price}
+            />
+            <input
+              type="text"
+              name="max_price"
+              className="max-price"
+              onChange={this.props.change}
+              value={this.props.globalState.max_price}
+            />
           </div>
           <div className="filters floor-space">
             <span className="title">Floor Space</span>
             <input
               type="text"
-              name="min-floor-space"
+              name="min_floor_space"
               className="min-floor-space"
+              onChange={this.props.change}
+              value={this.props.globalState.min_floor_space}
             />
             <input
               type="text"
-              name="max-floor-space"
+              name="max_floor_space"
               className="max-floor-space"
+              onChange={this.props.change}
+              value={this.props.globalState.max_floor_space}
             />
           </div>
-          <div className="filters bedrooms">
-            <span className="title">Rooms</span>
-            <input type="text" name="min-bedrooms" className="min-bedrooms" />
-            <input type="text" name="max-bedrooms" className="max-bedrooms" />
-          </div>
+
           <div className="filters extras">
-            <span className="title">Extras</span>
+            <span className="title">Facilities</span>
             <label htmlFor="extras">
-              <span>Elevators</span>{' '}
-              <input name="extras" value="elevator" type="checkbox" />
+              <span>Elevator</span>{' '}
+              <input
+                name="elevator"
+                value="elevator"
+                type="checkbox"
+                onChange={this.props.change}
+              />
             </label>
             <label htmlFor="extras">
               <span>Storage</span>{' '}
-              <input name="extras" value="storage" type="checkbox" />
+              <input
+                name="storage"
+                value="storage"
+                type="checkbox"
+                onChange={this.props.change}
+              />
             </label>
             <label htmlFor="extras">
               <span>Bath Tub</span>{' '}
-              <input name="extras" value="bath-tub" type="checkbox" />
+              <input
+                name="bath_tub"
+                value="bath-tub"
+                type="checkbox"
+                onChange={this.props.change}
+              />
             </label>
             <label htmlFor="extras">
               <span>Seperate Shower</span>{' '}
-              <input name="extras" value="seperate-shower" type="checkbox" />
+              <input
+                name="seperate_shower"
+                value="seperate-shower"
+                type="checkbox"
+                onChange={this.props.change}
+              />
             </label>
             <label htmlFor="extras">
               <span>Fireplace</span>{' '}
-              <input name="extras" value="fireplace" type="checkbox" />
+              <input
+                name="fireplace"
+                value="fireplace"
+                type="checkbox"
+                onChange={this.props.change}
+              />
             </label>
             <label htmlFor="extras">
               <span>Swimming Pool</span>{' '}
-              <input name="extras" value="swimming-pool" type="checkbox" />
+              <input
+                name="swimming_pool"
+                value="swimming-pool"
+                type="checkbox"
+                onChange={this.props.change}
+              />
             </label>
             <label htmlFor="extras">
               <span>Finished Basement</span>{' '}
-              <input name="extras" value="finished-basement" type="checkbox" />
+              <input
+                name="finished_basement"
+                value="finished-basement"
+                type="checkbox"
+                onChange={this.props.change}
+              />
             </label>
             <label htmlFor="extras">
               <span>Gym</span>{' '}
-              <input name="extras" value="gym" type="checkbox" />
+              <input
+                name="gym"
+                value="gym"
+                type="checkbox"
+                onChange={this.props.change}
+              />
             </label>
           </div>
         </div>

@@ -115,6 +115,7 @@
         .fa {
           font-size: 1.5rem;
           margin-right: 15px;
+          cursor: pointer;
         }
       }
     }
@@ -298,6 +299,8 @@
 }
 
 #pagination {
+  width: 100%;
+  display: block;
   text-align: center;
 
   .pages {
@@ -322,14 +325,21 @@
   }
 }
 
-.col-md-3 {
+.col-user {
   width: 25%;
   display: inline-block;
   vertical-align: top;
   padding: 0 15px;
 }
 
-.col-md-9 {
+.col-details {
   width: 75%;
   display: inline-block;
 }
+
+// .col-lg-6 {
+//   width: 50%;
+//   display: inline-block;
+//   vertical-align: top;
+//   padding: 0 15px;
+// }
